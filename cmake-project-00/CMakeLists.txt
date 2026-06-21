@@ -12,4 +12,6 @@ target_include_directories(FooLib PUBLIC "include")
 add_executable(MyApp "src/main.cpp")
 target_link_libraries(MyApp PRIVATE FooLib)
 
+install(TARGETS MyApp FooLib)
+
 add_test(NAME MyAppTest COMMAND MyApp)

@@ -15,3 +15,17 @@ target_link_libraries(MyApp PRIVATE FooLib)
 install(TARGETS MyApp FooLib)
 
 add_test(NAME MyAppTest COMMAND MyApp)
+
+# These are project-specific
+set(CPACK_PACKAGE_NAME MyProj-00)
+set(CPACK_PACKAGE_VENDOR MyCompany)
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "My Project-00")
+
+# These lines tend to be the same for every project
+set(CPACK_PACKAGE_INSTALL_DIRECTORY ${CPACK_PACKAGE_NAME})
+set(CPACK_VERBATIM_VARIABLES TRUE)
+
+set(CPACK_GENERATOR TGZ)
+
+# This is what writes out the input file for cpack
+include(CPack)
